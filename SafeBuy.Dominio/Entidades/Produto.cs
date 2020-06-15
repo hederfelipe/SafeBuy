@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SafeBuy.Dominio.Entidades
 {
-    class Produto
+    class Produto :Entidade
     {
         public int Id { get; set; }
         public string Nome { get; set; }

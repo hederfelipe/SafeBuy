@@ -1,11 +1,12 @@
 ﻿using SafeBuy.Dominio.ObjetoDeValor;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SafeBuy.Dominio.Entidades
 {
-    class Pedido
+    class Pedido :Entidade
     {
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
@@ -25,5 +26,15 @@ namespace SafeBuy.Dominio.Entidades
         // um pedido deve ter um item de pedido ou varios intens  pedidos
 
         ICollection<ItemPedido> ItensPedidos { get; set; }
+
+        public override void Validate()
+        {
+            LimparMensagensValidacao();
+            if (!ItensPedidos.Any())
+                AdcionarMensagemCritica("Critica - Pedido não pode ficar em item");
+
+            if (string.IsNullOrEmpty(Cep))
+                AdcionarMensagemCritica("Critica - Cep deve estar preenchido");
+        }
     }
 }
