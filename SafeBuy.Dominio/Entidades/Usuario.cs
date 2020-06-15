@@ -14,5 +14,14 @@ namespace SafeBuy.Dominio.Entidades
 
         //um usuario pode ou não pode (fazer/ter) pedidos
         public ICollection<Pedido> Pedidos { get; set; }
+
+        public override void Validate()
+        {
+            if (string.IsNullOrEmpty(Email))
+                AdcionarMensagemCritica("Email não informado");
+
+            if (string.IsNullOrEmpty(Senha))
+                AdcionarMensagemCritica("Senha não informada");
+        }
     }
 }

@@ -12,7 +12,11 @@ namespace SafeBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            if()
+            if (ProdutoId == 0)
+                AdcionarMensagemCritica("Não foi identificado qual a referência");
+
+            if (Quantidade == 0)
+                AdcionarMensagemCritica("Quantidade não informada");
         }
     }
 }
