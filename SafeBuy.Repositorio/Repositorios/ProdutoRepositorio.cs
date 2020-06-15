@@ -7,7 +7,8 @@ using System.Text;
 
 namespace SafeBuy.repositorio.Repositorios
 {
-    public class ProdutoRepositorio : BaseRepositorio<Produto> , IProdutoRepositorio
+    public class ProdutoRepositorio : BaseRepositorio<Produto> , IProdutoRepositorio  
     {
     }
 }
+ 

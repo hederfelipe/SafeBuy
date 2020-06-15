@@ -1,0 +1,14 @@
+{
+
+  "ConnectionStrings": {
+    "SqlServerConnection": "",
+    "SafeBuyDB": "server=localhost;uid=root;pwd=admin;database=SafeBuyDB"
+  }
+}
+
+
+
+
+
+
+-''                                                                                                                                                                       +' '
