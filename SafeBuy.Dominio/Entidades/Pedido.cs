@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SafeBuy.Dominio.Entidades
 {
-    class Pedido :Entidade
+    public class Pedido :Entidade
     {
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
