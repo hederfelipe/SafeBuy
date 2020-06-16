@@ -6,11 +6,13 @@ using System.Text;
 
 namespace SafeBuy.Dominio.Entidades
 {
-    public class Pedido :Entidade
+    public class Pedido : Entidade
     {
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
         public int UsuarioId { get; set; }
+
+        public virtual Usuario Usuario { get; set; }
         public DateTime DataPrevisaoEntrega { get; set; }
         public string Cep { get; set; }
         public string Estado { get; set; }

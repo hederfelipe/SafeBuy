@@ -29,7 +29,8 @@ namespace SafeBuy.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             var connectionString = Configuration.GetConnectionString("SafeBuyDB");
-            services.AddDbContext<SafeBuyContexto>(option => option.UseMySql(connectionString, m => m.MigrationsAssembly("SafeBuyRepositorio")));
+            services.AddDbContext<SafeBuyContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, 
+                m => m.MigrationsAssembly("SafeBuyRepositorio")));
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

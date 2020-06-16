@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SafeBuy.Dominio.Entidades
 {
-    public class Usuario :Entidade
+    public class Usuario : Entidade
     {
         public int Id { get; set; }
         public string Email { get; set; }
@@ -12,8 +12,8 @@ namespace SafeBuy.Dominio.Entidades
         public string Nome { get; set; }
         public string SobreNome { get; set; }
 
-        //um usuario pode ou não pode (fazer/ter) pedidos
-        public ICollection<Pedido> Pedidos { get; set; }
+        //um usuario pode ou não pode (fazer/ter)  nenhum ou muito pedidospedidos
+        public virtual ICollection<Pedido> Pedidos { get; set; }
 
         public override void Validate()
         {
