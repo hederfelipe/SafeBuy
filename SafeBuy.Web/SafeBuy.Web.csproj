@@ -25,6 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\ProdutoControler.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SafeBuy.repositorio\SafeBuy.repositorio.csproj" />
   </ItemGroup>
 

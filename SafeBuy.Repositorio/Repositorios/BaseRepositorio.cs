@@ -1,58 +1,52 @@
 ﻿using SafeBuy.Dominio.Contratos;
+using SafeBuy.repositorio.Contexto;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SafeBuy.repositorio.Repositorio
 {
     public class BaseRepositorio<TEntity> : IBaseRepositorio<TEntity> where TEntity : class
     {
-        private bool disposedValue;
+        
+        protected readonly SafeBuyContexto SafeBuyContexto;
+        
 
-        public BaseRepositorio()
+        public BaseRepositorio(SafeBuyContexto safeBuyContexto)
         {
-
+            SafeBuyContexto = safeBuyContexto;
         }
 
         public void Adicionar(TEntity entity)
         {
-            throw new NotImplementedException();
+            SafeBuyContexto.Set<TEntity>().Add(entity);
         }
 
         public void Atualizar(TEntity entity)
         {
-            throw new NotImplementedException();
+            SafeBuyContexto.Set<TEntity>().Update(entity);
+            SafeBuyContexto.SaveChanges();
         }
 
         public TEntity ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return SafeBuyContexto.Set<TEntity>().Find(id)
         }
 
         public IEnumerable<TEntity> ObterTodos()
         {
-            throw new NotImplementedException();
+            return SafeBuyContexto.Set<TEntity>().ToList();
+
         }
 
         public void Remover(TEntity entity)
         {
-            throw new NotImplementedException();
+            SafeBuyContexto.Remove(entity);
+            SafeBuyContexto.SaveChanges();
         }
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    // TODO: dispose managed state (managed objects)
-                }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
-                disposedValue = true;
-            }
-        }
+     
 
         // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
         // ~BaseRepositorio()
@@ -64,8 +58,7 @@ namespace SafeBuy.repositorio.Repositorio
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
+            SafeBuyContexto.Dispose();
         }
     }
 }
