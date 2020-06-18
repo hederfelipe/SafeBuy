@@ -7,6 +7,8 @@ namespace SafeBuy.repositorio.Repositorio
 {
     public class BaseRepositorio<TEntity> : IBaseRepositorio<TEntity> where TEntity : class
     {
+        private bool disposedValue;
+
         public BaseRepositorio()
         {
 

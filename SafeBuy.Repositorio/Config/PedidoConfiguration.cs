@@ -39,12 +39,16 @@ namespace SafeBuy.repositorio.Config
             builder
                 .Property(p => p.EnderecoCompleto)
                 .IsRequired()
-                .GetHashCode(100);
+                .HasMaxLength(100);
 
             builder
                 .Property(p => p.NumeroEndereco)
                 .IsRequired()
                 .HasMaxLength(100);
+
+            builder.HasOne(p => p.FormaPagamento);
+
+            
         }
     }
 }

@@ -34,6 +34,9 @@ namespace SafeBuy.repositorio.Config
                 .IsRequired()
                 .HasMaxLength(50);
 
+            builder.HasMany(u => u.Pedidos)
+                .WithOne(p => p.Usuario);
+
            
 
         }

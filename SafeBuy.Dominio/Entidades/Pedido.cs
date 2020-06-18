@@ -22,17 +22,18 @@ namespace SafeBuy.Dominio.Entidades
 
         public int FormaPagamentoId { get; set; }
 
-        public FormaPagamento FormaPagamento { get; set; }
+        public virtual FormaPagamento FormaPagamento { get; set; }
 
 
         // um pedido deve ter um item de pedido ou varios intens  pedidos
 
-        ICollection<ItemPedido> ItensPedidos { get; set; }
+        public virtual ICollection<ItemPedido> ItemPedidos { get; set; }
 
         public override void Validate()
         {
             LimparMensagensValidacao();
-            if (!ItensPedidos.Any())
+
+            if (!ItemPedidos.Any())
                 AdcionarMensagemCritica("Critica - Pedido não pode ficar em item");
 
             if (string.IsNullOrEmpty(Cep))
