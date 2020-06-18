@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SafeBuy.Dominio.Contratos;
 using SafeBuy.repositorio.Contexto;
+using SafeBuy.repositorio.Repositorios;
 using System;
 
 namespace SafeBuy.Web
@@ -31,7 +32,7 @@ namespace SafeBuy.Web
             services.AddDbContext<SafeBuyContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, 
                 m => m.MigrationsAssembly("SafeBuy.repositorio")));
 
-            services.AddScoped<IProdutoRepositorio>();
+            services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

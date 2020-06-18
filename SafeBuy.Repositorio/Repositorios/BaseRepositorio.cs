@@ -31,7 +31,7 @@ namespace SafeBuy.repositorio.Repositorio
 
         public TEntity ObterPorId(int id)
         {
-            return SafeBuyContexto.Set<TEntity>().Find(id)
+            return SafeBuyContexto.Set<TEntity>().Find(id);
         }
 
         public IEnumerable<TEntity> ObterTodos()
