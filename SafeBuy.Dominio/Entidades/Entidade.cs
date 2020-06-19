@@ -31,7 +31,7 @@ namespace SafeBuy.Dominio.Entidades
 
         public abstract void Validate();
 
-        protected bool EhValido
+        public  bool EhValido
         {
             get { return !MensagensValidacao.Any(); }
         }

@@ -11,13 +11,16 @@ namespace SafeBuy.Dominio.Entidades
         public string Descricao { get; set; }
         public decimal Preco { get; set; }
 
+        public string NomeArquivo { get; set; }
+
         public override void Validate()
         {
             if (string.IsNullOrEmpty(Nome))
                 AdcionarMensagemCritica("Nome do produto não informado");
 
-            if (Preco < 0)
-                AdcionarMensagemCritica("Preço informado não pode ser negativo");
+            if (string.IsNullOrEmpty(Descricao))
+                AdcionarMensagemCritica("Descrição não foi informado");
+
         }
     }
 }

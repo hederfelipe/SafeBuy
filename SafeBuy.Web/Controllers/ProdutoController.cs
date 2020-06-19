@@ -11,7 +11,6 @@ using SafeBuy.repositorio.Repositorios;
 namespace SafeBuy.Web.Controllers
 {
     [Route("api/[Controller]")]
-   
     public class ProdutoController : Controller
     {
         private readonly IProdutoRepositorio _produtoRepositorio;
@@ -25,14 +24,15 @@ namespace SafeBuy.Web.Controllers
             try
             {
                 return Ok(_produtoRepositorio.ObterTodos());
-              
+
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.ToString());
             }
         }
-        [HttpPost]
+    
+            [HttpPost]
         public IActionResult Post([FromBody]Produto produto)
         {
             try

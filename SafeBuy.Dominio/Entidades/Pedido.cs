@@ -38,6 +38,9 @@ namespace SafeBuy.Dominio.Entidades
 
             if (string.IsNullOrEmpty(Cep))
                 AdcionarMensagemCritica("Critica - Cep deve estar preenchido");
+
+            if (FormaPagamentoId == 0)
+                AdcionarMensagemCritica("Crítica - Não foi informado a forma de pagamento");
         }
     }
 }
