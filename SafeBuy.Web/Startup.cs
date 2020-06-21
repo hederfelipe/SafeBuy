@@ -17,34 +17,33 @@ namespace SafeBuy.Web
         public Startup(IConfiguration configuration)
         {
             var builder = new ConfigurationBuilder();
-            builder.AddJsonFile("config.json" , optional : false , reloadOnChange : true);
+            builder.AddJsonFile("config.json", optional: false, reloadOnChange: true);
 
             Configuration = builder.Build();
         }
 
-        
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             var connectionString = Configuration.GetConnectionString("SafeBuyDB");
-            services.AddDbContext<SafeBuyContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString, 
+            services.AddDbContext<SafeBuyContexto>(option => option.UseLazyLoadingProxies().UseMySql(connectionString,
                 m => m.MigrationsAssembly("SafeBuy.repositorio")));
 
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
         }
+    
 
-        private void option(DbContextOptionsBuilder obj)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -69,6 +68,7 @@ namespace SafeBuy.Web
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
+
 
             app.UseSpa(spa =>
             {

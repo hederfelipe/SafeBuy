@@ -1,10 +1,22 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<div class="text-center">
+  <form class="form-signin">
 
-</body>
-</html>
+    <h1 class="h4 mb-2">Login do Cliente</h1>
+
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email" id="inputEmail"
+           name="email" placeholder="Informe o seu email"
+           class="form-control mb-2"
+           [(ngNodel)]="email"/>
+
+    <label for="inputSenha" class="sr-only">Senha</label>
+    <input type="password" id="inputSenha"
+           name="senha" placeholder="senha"
+           class="form-control mb-2" 
+           [(ngModel)]="senha"/>
+
+    <button class="btn btn-primary btn-block mb-3" type="submit" (click)="entrar()">Entrar</button>
+    <img src="C:\Users\USER\source\repos\Projeto E-co\SafeBuy\SafeBuy.Web\ClientApp\src\assets\img\logo.jpg" />
+  </form>
+
+</div>
