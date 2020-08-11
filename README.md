@@ -1,5 +1,7 @@
 # SafeBuy
-Projeto de E-comerce
+
+Projeto de E-comerce refere-se a um site de compras On-Line, o site conta com tela de cadastro, tela de autenticação do usuario
+e a tela da loja virtual.
 
     Tecnologias utilizadas
 
